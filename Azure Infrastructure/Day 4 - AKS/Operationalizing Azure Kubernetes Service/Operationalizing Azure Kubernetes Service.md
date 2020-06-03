@@ -45,6 +45,7 @@ echo "Creating AKS cluster..."
 az aks create \
     --resource-group $RESOURCE_GROUP \
     --name $AKS_RESOURCE \
+    --generate-ssh-keys \
     --service-principal "${SP_ID}" \
     --client-secret "${CLIENT_SECRET}"
 
