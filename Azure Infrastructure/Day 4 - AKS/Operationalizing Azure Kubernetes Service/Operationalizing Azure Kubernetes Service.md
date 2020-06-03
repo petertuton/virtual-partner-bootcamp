@@ -45,6 +45,7 @@ echo "Creating AKS cluster..."
 az aks create \
     --resource-group $RESOURCE_GROUP \
     --name $AKS_RESOURCE \
+    --generate-ssh-keys \
     --service-principal "${SP_ID}" \
     --client-secret "${CLIENT_SECRET}"
 
@@ -111,6 +112,9 @@ oAuthPermissionId=$(az ad app show --id $serverAppId \
 az ad app permission add --id $clientAppId --api $serverAppId \
     --api-permissions ${oAuthPermissionId}=Scope
 az ad app permission grant --id $clientAppId --api $serverAppId
+
+echo "Sleep for 2 minutes..."
+sleep 120
 
 az group create --name clusterAADRG --location eastus
 
