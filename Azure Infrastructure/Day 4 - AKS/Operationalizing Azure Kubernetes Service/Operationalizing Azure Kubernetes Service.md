@@ -113,6 +113,9 @@ az ad app permission add --id $clientAppId --api $serverAppId \
     --api-permissions ${oAuthPermissionId}=Scope
 az ad app permission grant --id $clientAppId --api $serverAppId
 
+echo "Sleep for 2 minutes..."
+sleep 120
+
 az group create --name clusterAADRG --location eastus
 
 tenantId=$(az account show --query tenantId -o tsv)
