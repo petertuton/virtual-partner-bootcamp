@@ -193,96 +193,99 @@ Directions:  With all participants in the session, the facilitator/SME presents 
 ### Customer Situation
 The renewable energy industry is growing fast!   
 
-Contoso Solar Inc (Contoso) is a US Domestic commercial and residential solar installation and solar technology supply firm headquartered in the Pacific NorthWest, Unitest States.    
+Contoso Solar Inc (Contoso) is a US Domestic commercial and residential solar installation and solar technology supply firm headquartered in the Pacific NorthWest, United States.    
 
-Established 2004, by founders Susan Johnson (CEO) and Darren Cross (CFO), Contoso have almost tripled in size, and have taken on a lot of new projects that even take them from a US Domestic only operation, to an international operation with the the closing of a lucrative project from neighboring British Columbia, Canada.   This has been a long and exciting road that involved a 36 month app-modernization effort coupled with a recent lift and shift to the cloud using Azure.  This was followed again by an 18 month re-design of their key applications to take advantage of serverless deployments to take advantage of swifter time to market to accomodate the massive grwoth enjoyed industry wide.  
+Established 2004, by founders Susan Johnson (CEO) and Darren Cross (CFO), Contoso have almost tripled in size, and have taken on a lot of new projects that even take them from a US Domestic only operation, to an international operation with the the closing of a lucrative project from neighboring British Columbia, Canada. This has been a long and exciting road that involved a 36 month app-modernization effort coupled with a recent lift and shift to the cloud using Azure. This was followed again by an 18 month re-design of their key applications to take advantage of serverless deployments to take advantage of swifter time to market to accommodate the massive growth enjoyed industry wide.  
 
 Now that the overall cost to install solar has dropped by almost 70% and charging and conversion efficiency has increased, the business case for solar is very hard to ignore with overall unit installation price dropping - in many cases, with components converging on commodity status.  
 
-Contoso currently has three satellite offices, each supporting installation, fulfullment, and distribution teams:  Portland, OR, Seattle, WA, and Austin, TX.   And, as a result of their success in the industry as well as achieving GDPR/CCPA compliance including a SOC 3 certification, they will be opening a new office in Vancouver, BC to tackle the new commercial business acquired in BC which is the installation of solar for a number of provincial buildings including schools, and transit stations.   
+Contoso currently has three satellite offices, each supporting installation, fulfillment, and distribution teams:  Portland, OR, Seattle, WA, and Austin, TX. And, as a result of their success in the industry as well as achieving GDPR/CCPA compliance including a SOC 3 certification, they will be opening a new office in Vancouver, BC to tackle the new commercial business acquired in BC which is the installation of solar for a number of provincial buildings including schools, and transit stations.   
 
-Susan Johnson (CEO) and Darren Cross (CFO) recognize the power of Azure public cloud. 
-Contoso now has most of their key line of business applications, data storage, and analysis operations on Azure.   They use M365 and each satellite office has a small on-prem compute resource used to run specific scanning and installation kitting gear.  These domains are federated using AD Connect up to the primary AAD in Aure.  Contoso currently supports direct inbound and outbound data integration with established first tier solar technology manufacturers and component suppliers located globally as well as direct integration with shippers and payment providers. 
+Susan Johnson (CEO) and Darren Cross (CFO) recognize the power of Microsoft Azure. 
+Contoso now has most of their key line of business applications, data storage, and analysis operations running on Microsoft Azure. They use Microsoft 365 and each satellite office has a small on-premises compute resource used to run specific scanning and installation kitting gear. These domains are federated using Azure Active Directory Connect up to the primary AAD in Azure. Contoso currently supports direct inbound and outbound data integration with established first-tier solar technology manufacturers and component suppliers located globally as well as direct integration with shippers and payment providers. 
 
-According to Chief Information Officer (CIO) Jessica Sams, Contoso's main concern is providing **robust application security** for it's own suppliers and customers while also providing an easy online experience for them. Contoso currently manages authentication via Azure Active Directory but wants to reconfigure to support a more robust solution for 3 major user experiences:
+According to Chief Information Officer (CIO) Jessica Sams, who also holds the Data Protection Officer responsiblity (DPO), Contoso's main concern is providing **robust application security** for it's own suppliers and customers while also providing an easy online experience for them. 
 
-* **B2B** - Solar Manufacturer/Providers, including professional technical contributors such as: architectural, engineering, and regulatory/legal advisors from state and local entities.   One key workflow partner of this group is Contoso's own Commercial and Residential professional installer teams as there is heavy cross-team interaction during execution of project installations.  
+Contoso currently manages authentication via Azure Active Directory but wants to reconfigure to support a more robust solution for 3 major user experiences:
 
-* **B2C** - DYI Consumers purchasing components and services directly - either wholesale or retail, and/or opting in persistent account access enabling consumer access to extended offerings provided by Contoso Consumer Services including pre- and post- sales technical support, blog access, and access to technical events sponsored by the industry
+* **B2B** - Solar Manufacturer/Providers, including professional technical contributors such as: architectural, engineering, and regulatory/legal advisors from state and local entities. One key workflow partner of this group is Contoso's own Commercial and Residential professional installer teams as there is heavy cross-team interaction during execution of project installations.  
+
+* **B2C** - DIY Consumers purchasing components and services directly - either wholesale or retail, and/or opting in persistent account access enabling consumer access to extended offerings provided by Contoso Consumer Services including pre- and post- sales technical support, blog access, and access to technical events sponsored by the industry
 
 * **OPS** - Internal employee groups such as C-Suite, HR, IT, Fulfillment, Installation Teams, Partner and Consumer Services, Sales and Marketing
 
-With these use cases and the addtion of new infrastructure, locations, and employees, Contoso needs a solution that will provide reliable authentication but in addition, they require robust account management functionality, as well as the ability to secure and audit application configuration, and integration events. 
+With these use cases and the addition of new infrastructure, locations, and employees, Contoso needs a solution that will provide reliable authentication. In addition, they also require robust account management functionality, as well as the ability to secure and audit application configuration, and integration events. 
 
-In particular, Suppliers accessing Contoso's Supplier Workflow and APIs should only have access to resources granted to those accounts.   One Supplier should not be able to interact with allocated resources of another supplier.   
+In particular, Suppliers accessing Contoso's Supplier Workflow and APIs should only have access to resources granted to those accounts. One Supplier should not be able to interact with allocated resources of another supplier.   
 
 Customers purchasing from the retail website should not be able to access wholesale prices, but an OPS Contoso Sales Account Manager should be able to see both retail and wholesale information for both B2B and B2C scenarios. 
 
-This requires a system for access and authentication that can be centrally controlled by the Contoso OPS IT Team.   And this also means Contoso needs to focus on what an IDENTITY means to them in order to secure their cloud applications:
-
+This requires a system for access and authentication that can be centrally controlled by the Contoso OPS IT Team. And this also means Contoso needs to focus on what an IDENTITY means to them in order to secure their cloud applications:
 
 ![image info](./images/Identity.png)  
 
+In addition to Authentication and Access management (Identity), Contoso wants to ensure that their backend infrastructure uses as much of the Azure backbone as possible. This includes direct integrations with their cloud-based CRM and ERP systems. As expected, any APIs and web applications need to be secure as well, with no application secrets stored in any config or application settings so they can be managed by the security team in accordance with their InfoSec Policy. 
 
-
-In addition to Authentication and Access management (Identity), Contoso wants to ensure that their backend infrastructure use as much of the Azure backbone as possible to include direct integrations with their cloud-based CRM and ERP systems.   And of course, any APIs and Web Applications need to be secure as well, with no application secrets stored in any config or application settings so they can be managed by the security team in accordance with their InfoSec Policy. 
-
-**Contoso IT Security Team** 
+#### Contoso IT Security Team
 
 The security team is lead by Jason Ming, VP of IT Operations, who reports to Jessica Sams (CIO/DPO), and manages all operational aspects of IT infrastructure including security. 
 
-The security team is a small cross-functional unit of DevOps-aware individuals from other teams who participate by focusing on improving full-stack security.  This is a new approach, and timely since Contoso now has executive sponsorship to invest in the next push to improve the current system architecture.   
+The security team is a small cross-functional unit of individuals aware of Contoso's DevOps efforts. This is somewhat of a new approach, and timely since Contoso now has executive sponsorship to invest in the next push to improve the current system architecture.   
 
-This team manages all security aspects for the applications and users at the company, from database access all the way down to card-key access readers, and as such they want to utilize Azure to simplify and reduce management overhead for Contoso's operations to ensure a lean, mean, secure configuration.
+This team manages all security aspects for the applications' infrastructures and applications. In addition to that, the team also manages the security aspects of users activity at the company, from database access all the way down to card-key access readers. Their main interest is to utilize Azure to simplify and reduce management overhead for Contoso's operations to ensure a lean, mean, secure configuration.
 
-**Contoso Development Team** 
+#### Contoso Development Team
 
 Contoso's Development Team is headed by David Stone, Lead System Integrations and Software Engineer 
-Under David's leadership, the Contoso Develpment team Team have settled on Azure DevOps as their primary CI/CD platform and the run a tight ship with a clean backlog, using a Git-Flow   
+Under David's leadership, the Contoso Development Team settled on Azure DevOps as their primary CI/CD platform and the run a tight ship with a clean backlog, using a Git-Flow branching strategy.
 
-Applications are deployed using Azure DevOps Pipelines with minimal 3rd party tool interaction with the exception of some common open source testing and verification/risk management libraries.  
+Applications are deployed using Azure DevOps Pipelines with minimal third party tool interaction. However, there is the exception of some common open source testing and verification/risk management libraries which involves extensive third party library usage.  
 
-Their typical sprint is 7 days with trunk releases (major, minor, and patch) in a blue-green configuration every Thursday.  
+Their typical sprint is 7 days long, with trunk releases (major, minor, and patch) in a blue-green configuration, every Thursday.  
 
 ### Customer Requirements
-The following requirements are a result of over a year of hard work assessing Contoso's IT security requirements in order to maintain compliance with certain certifications they need to work with global providers and provide for their customers, as well as transacting with first-tier payment providers and certifcation organizations. 
+The following requirements are a result of over a year of hard work assessing Contoso's IT security requirements in order to maintain compliance with certain certifications they need to work with global providers and provide for their customers, as well as transacting with first-tier payment providers and certification organizations. 
 
-Fulfiliing these requirements using robust, repeatable capabilities is essential to Contoso's continued growth and success.   Failure in any one of these areas can jeaopardize the firm's ability to maintain their current level of compliance    
+Fulfilling these requirements using robust, repeatable capabilities is essential to Contoso's continued growth and success.   Failure in any one of these areas can jeopardize the firm's ability to maintain their current level of compliance.
 
-**Provide Unified Identity Management Throughout the Organization – Including Partners and Consumers**
-Contoso has moved most of its primary applications and workflow into the cloud and uses M365 E5 licensing for their operations.   
+#### Provide Unified Identity Management Throughout the Organization – Including Partners and Consumers
+Contoso has moved most of its primary applications and workflow into the cloud and uses Microsoft 365 for their operations. They have active E5 licenses.  
 
-**Existing Active Directory Domains**
-There are 3 small local legacy AD V1 domains at each of the 3 satellite offices which are what is left of the old federated domain model after their primary move to the cloud.   
+#### Existing Active Directory Domains
+There are 3 small local legacy Active Directory domains at each of the 3 satellite offices which were part of the old federated domain model after their primary location moved its infrastructure entirely to the cloud.
 
-Most employees interact through AAD via the M365 tenant, but some will log into machines within the installation warehouses where compute is used drive some PLC controllers for installation kitting and automation, but those machines are simple Windows Server Standard 2016 installs and few in number.  
+Most employees interact through Azure Active Directory via the Microsoft 365 tenant, but some will log into machines within the installation warehouses where compute is used drive some PLC controllers. These controllers are designed for installation kitting and automation. All of these machines are running Windows Server Standard 2016.  
 
-Each machine group is secured on domain by Windows Security Group membership, and the on-prem domains are already federated via Azure AD Connect to the parent M365 tenant.    DNS for www.contososolar.com is wired to the M365 tenant.
+The on-premises domains are federated by using Azure AD Connect, and these also contain machine groups with the machine identities.
+The DNS namespace for www.contososolar.com is associated to the Microsoft 365 tenant.
 
-**Existing Azure Subscriptions**
-Two additional Azure Subscriptions have trusted relationships with that same M365 tenant, one subscription for development, testing and another subscription for staging and production releases of their enterprise Applications and APIs.    
+#### Existing Azure Subscriptions
+Two additional Azure Subscriptions have trusted relationships with that same Microsoft 365 tenant:
+- one subscription for development, testing and 
+- another subscription for staging and production releases of their enterprise Applications and APIs.    
 
-**Other Integrations**
-Contoso uses Dynamics for their entire front operations including CRM and ERP functions as well as running an e-commerce purchase path directly through Dynamics.    
+#### Other Integrations
+Contoso uses Dynamics 365 for their entire front operations including CRM and ERP functions as well as running an e-commerce purchase path directly through Dynamics 365.    
 
-**Data Storage**
-Contoso has migrated all of their operations, analytics and reporting datastores are on Azure SQL Database:
+#### Data Storage
+Contoso has migrated all of their operations, analytics and reporting data stores to a managed Azure SQL Database workload.
 
 Given the environment, there are three valid authentication scenarios:  
-- **B2B** - Partner Manufacturer/Suppliers should be able authenticate on invitation to Contoso's identity management using their work credentials via a guest configuration with Contoso's M365 tenant.   This will allow partners to authenticate and be authorized to interact with Contoso's application platforms as required either through direct Web or API interaction or via M365 UX, or perhaps even via Azure AD Application Proxy for older apps supporting SAML only.  
+- **B2B** - Partner Manufacturer/Suppliers should be able authenticate on invitation to Contoso's identity management using their work credentials via a guest configuration with Contoso's M365 tenant. This will allow partners to authenticate and be authorized to interact with Contoso's application platforms as required either through direct Web or API interaction or via Microsoft 365 user experience. Additionally, they could also leverage Azure AD's Application Proxy functionality , which would add support for legacy apps which only support SAML.  
 
-- **B2C** - DIY Retail Consumers should be able to use the ecommerce purchase path to purchase solar components with an anonymous cart purchase path.   Or they can create a persistent account with Contoso, using an email as username or using a social login from a valid Identity Provider, and save payment methods and view order status and order history along with sharing other social details if they desire.   This method gives them access to pre- and post- sales technical support as well as event and blog content.  
+- **B2C** - DIY Retail Consumers should be able to use the e-commerce purchase path to purchase solar components with an anonymous cart purchase path. Or they can create a persistent account with Contoso, using an e-mail address as username or using an identity provided by a social network account (commonly referred to as social login). 
+These users should be able to save payment methods and view order statuses,m as well as review order history along with sharing other social details if they so choose to. This method gives them access to pre- and post- sales technical support and to the regular events and blog content.
 
-- **OPS** - Existing and New internal employees should be able to login with their assigned Active Directory Work Account from any valid secure location on any approved device.  Optionally this authentication flow may require multi-factor authorization (MFA).   Once authenticated, the user will experience single sign-on (SSO) behavior across enterprise applications and endpoints until they fully log out.
+- **OPS** - Existing and New internal employees should be able to login with their assigned Active Directory Work Account from any valid secure location, on any approved device. Optionally, this authentication flow may require multi-factor authorization (MFA). Once authenticated, the user will experience single sign-on (SSO) behavior across enterprise applications and endpoints, until they fully log out.
 
-**Goal:** Provide an enterprise-ready solution to unify user and service account authentication, authorization, and management (provisioning).   This goal is essentially the foundational core of all the other requirements as it defines the identity management for users, LOB applications, and custom applications such as web apps, apis, service apps.  
+**Goal**: The goal is to provide an enterprise-ready solution to unify user and service account authentication, authorization, and management (provisioning). This goal is essentially the foundational core of all the other requirements as it defines the identity management for users, LOB applications, and custom applications such as web apps, apis, service apps.  
 
-**Provide Authorization Using Role Based Access Control for Custom Applications**
+#### Provide Authorization Using Role Based Access Control for Custom Applications
 As per Contoso's Infosec and Data Handling Policies, there is an active Segregation of Duties (SOD) Matrix that defines a list of account roles and security groups within the company structure.   
 
-*The desired outcome of all this effort:*  Employees and Guest Partners should have access only to the information they need to perform their duties.  
+*The desired outcome of all this effort*: Employees and Guest Partners should have access only to the information they need to perform their duties.  
 
-This requirement implies use of Role-based Access Control (RBAC) within the enterprise to match the SOD matrix.  OPS employees are allocated to roles and groups based on Employee Job Description and this will determine access to key resources, systems, and data.  
+This requirement implies use of Role-based Access Control (RBAC) within the enterprise to match the SOD matrix. OPS employees are allocated to roles and groups based on Employee Job Description and this will determine access to key resources, systems, and data.  
 
 Listed below is a simple role classification for Contoso: 
 - **Business Admin** – C-Suite, VPs
@@ -296,31 +299,32 @@ Listed below is a simple role classification for Contoso:
 - **External Partners** – B2B all external supplier and professional service partners interacting with Contoso applications 
 - **External Consumer** – B2C all external consumers who have created accounts with Contoso for the Extended Payment, Service, and Technical Advisory Experience Contoso provides. 
 
-**Goal:** Using the unified strategy you come up with above, apply the concept of Least Privilege and RBAC to configure roles to ensure that every user and service principle has the right level of permissions to the right principal, at the right time to execute – nothing more, nothing less.  Within the secure workflow of custom applications, apply RBAC checks based on roles found in access claims from the unified identity strategy to make decisions within the custom application workflow as to what actions the authenticated principal can take.   This secures endpoints that users and services can integrate with and ensures that custom applications are secured using the same unified strategy as the rest of the organization.
+**Goal**: Using the unified strategy you come up with above, apply the concept of least privilege and RBAC to configure roles to ensure that every user and service principle has just the right level of permissions and at the right time to execute – nothing more, nothing less. 
+Within the secure workflow of custom applications, apply RBAC checks based on roles found in access claims from the unified identity strategy to make decisions within the custom application workflow as to what actions the authenticated principal can take. This secures endpoints that users and services can integrate with and ensures that custom applications are secured using the same unified strategy as the rest of the organization.
 
-**Ensure Data Encryption - AT ALL TIMES (at rest and in motion)**
+#### Ensure data encryption at rest and in motion
 
 As Per Contoso's Infosec and Data Handling Policies, data will be encrypted at rest and in motion throughout the application stack, regardless of location and status and this includes during application synchronization (raw data file upload/download, application data synchronization, and API transactions).  
 
 **Goal:**  Ensure all data within the organization is encrypted at all times and reduce complexity of application encryption by using pre-built middleware to encrypt/decrypt on the fly. 
 
-**Provide Data and Resource Access Control based on RBAC and Identity**
+#### Provide Data and Resource Access Control based on RBAC and Identity
 
 As Per Contoso's Infosec and Data Handling Policies, data and resource access controls will be applied to ensure the right data is available to the right people at the right time.  
 
-Access is controlled by role scoping, as well as filtering by robust unique identifier criteria.   Contoso also needs to audit certain activities and the audit process is tied to resources as well as roles.  
+Access is controlled by role scoping, as well as filtering by robust unique identifier criteria. Contoso also needs to audit certain activities and the audit process is tied to resources as well as roles.  
 
 Listed below is a simple **data classification** of Contoso secure data: 
 
 - **Business Critical** - Client Architectural, Engineering, Requirements, or Legal and Regulatory documents uploaded by architectural firms or by state and local regulatory entities 
 - **Business Critical** - ERP, Transactional Data related to Wholesale and Retail Transactions, and Service Process data classified as **Business Critical ** by Contoso
 - **Business Critical** - CRM, Sales Pipeline/Biz-Dev, Supplier, and Consultative Contributor, and Persistent Retail Customer profile data
-- **Mission Critical** - Post process Analysis, Poduct Definitions, Product Catalog
+- **Mission Critical** - Post process Analysis, Product Definitions, Product Catalog
 - **PII** - Employee HR data to include data that is considered PII by GDPR/CCPA standards
 
 **Goal:** Using RBAC role definitions, lock down access to data and resources within the applications to the appropriate roles.   Ensure access to data and resources are controlled based on permissions applied to roles.   This will simplify security management and reduce risk of improper access across the organization.  
 
-**Provide Authorization Using Role Based Access Control for Custom Applications**
+#### Provide Authorization Using Role Based Access Control for Custom Applications
 
 Custom applications should verify access and capabilities for user and service principals using the same unified identity strategy the rest of the organization uses where possible.    
 
@@ -328,7 +332,7 @@ Using the same strategy means access to the same roles defined in RBAC and this 
 
 **Goal:** Within the secure workflow of custom applications, apply RBAC checks based on roles found in access claims from the unified identity strategy to make decisions within the custom application workflow as to what actions the authenticated principal can take.   This secures endpoints that users and services can integrate with and ensures that custom applications are secured using the same unified strategy as the rest of the organization.
 
-**Provide Robust Application Deployment to Improve Stability and Security**
+#### Provide Robust Application Deployment to Improve Stability and Security
 
 For deployment, application reliability and security can be improved by using consistent development, verification, and deployment practices.  
 
@@ -348,11 +352,11 @@ Using a dedicated, secure pipeline build tool-chain as the official deployment s
 
 ### Key Design Considerations
 
-According to David Stone, Lead System Integrations and Software Engineer, Contoso operates mostly in North American West Coast. This means that for now, performance for multiple regions takes a back seat to the more emergent application and integdration security  concerns.  The IT Group has implemented minimal cloud-based HADR, but since Contoso is growing, their IT Group will revisit these topics in the near future after the security upfit is complete.  
+According to David Stone, Lead System Integrations and Software Engineer, Contoso operates mostly in North American West Coast. This means that for now, performance for multiple regions takes a back seat to the more emergent application and integration security  concerns. The IT Group has implemented minimal cloud-based high-availability and disaster recover, but since Contoso is growing, their IT Group will revisit these topics in the near future after the security uplift is complete.  
 
-Nearly all of the custom applications Contoso have deployed are ASP.NET Core Web Apps and APIs or .NET Core Daemon Apps.  This is a result of a massive refactoring and tool-chain consolitation campaign started last year, uplifting their custom applications from a jungle of legacy tools and languages to a common tool-chain and language set.   This effort resulted in more predictable delivery due to reduced complexity, faster development, and greatly reduced time to market. 
+Nearly all Contoso's custom apps are ASP.NET Core Web Apps, ASP.NET Core APIs and .NET Core Daemon Apps (background services). This is a result of a massive refactoring , part of a consolidation campaign started last year. This has uplifting Contoso's custom applications from a jungle of legacy tools and languages to a common tool-chain and language set. This effort resulted in a much more predictable delivery due to reduced complexity, faster development, and greatly reduced time to market. 
 
-All front-end APIs and Web Apps are deployed to auto-scaled app service plans.   In the near future, the Application Architecture Team is considering converting to a CQRS architecture to address scale concerns for upcoming growth by using an event/messaging, or pub-sub design pattern. 
+All front-end APIs and Web Apps are deployed to Azure App Service Plans with auto-scaling enabled. In the near future, the Application Architecture Team is considering converting to a Command And Query Responsibility Segregation architecture to address scale concerns for the upcoming growth by using an event/messaging system or a Pub/Sub architectural design pattern.
 
 The overall design should provide a wholistic cloud security strategy extending security for existing integrations as well as setting the stage for current and future development.  
 
@@ -361,27 +365,27 @@ In terms of Secure Cloud Application requirements, a few things are clear:
 - Applications need to be configured to authenticate with Azure services such as Azure SQL Database, and Azure Key Vault
 - Client applications will need to authenticate discreet classes of users using a unified security approach - Contoso needs a unified strategy for authentication and authorization
 
-**NOTE**
+#### NOTE
 
-Locking down a Secure Cloud Application Strategy is the primary concern right now however, Contoso is growing - fast - so consideration for scale and performance should be included during design.
+Locking down a Secure Cloud Application Strategy is the primary concern right now. 
+However, Contoso is growing _ _**fast**_ _ so consideration for scale and performance should be included during design.
 
 ### Contoso Current High-level Architecture
 ![image info](./images/ContosoHighlevelSecurity.png)  
 
 ## Step 2: Design a Solution 
 
-**Goal:** Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
+**Goal:** Design a solution and prepare to present the solution to the target customer audience in a 15-minutes chalk-talk format.
 
-**Timeframe:** 60 minutes
+**Time-frame:** 60 minutes
 
 **Directions:** With all participants at your table, answer the following questions and list the answers on a flip chart:
 
-- **What customer business needs do you need to address with your solution?**
-
+- **What customer business needs do you need to be aware of in order to address the solution?**
 - **How would you design a Unified Identity Solution for Contoso that includes Contoso partners and customers?**
-- **What are some methods to effectively migrate users for both the External Partners and Customers from existing user stores into the new Unified Identity Solution?**
-- **How would you ensure data is encryption across the full stack for Contoso?** 
-- **How would you design a solution where credential master keys (CMK) for data encrption, were managed by a regulated team such as in BYOK scenarios?** 
+- **What are the methods to migrate users effectively for both the External Partners and Customers from existing user stores into the new Unified Identity Solution?**
+- **How would you ensure data encryption across the full stack for Contoso?** 
+- **How would you design a solution where credential master keys (CMK) for data encryption, were managed by a regulated team such as in BYOK scenarios?** 
 - **How would you control access to data, cloud resources, and LOB applications within the organization as well as reducing authorization management overhead?**
 - **How would you ensure robust application security design across all stages of development from POC to deployment in Production?**
 - **What methods can be used to abstract application secrets away from application configuration during development and deployment?**
@@ -390,14 +394,14 @@ Locking down a Secure Cloud Application Strategy is the primary concern right no
 - **Who should you present this solution to?**
 - **What are the benefits of your solution?**
 - **Are there any customer requirements not addressed by your solution?**
-- **Are there any major caveats the customer must consider on implementation?**
+- **Are there any major caveats the customer must consider during the implementation?**
 - **How does your design account for customer objectives and objections?**
 
 ## Step 3: Present the Solution
 
 **Goal:**Prepare a 15-minute chalk-talk style presentation for the customer and present your solution to another table as the "target audience".
 
-**Timeframe:** 30 minutes
+**Time-frame:** 30 minutes
 
 **Directions:**
 
@@ -415,27 +419,27 @@ Locking down a Secure Cloud Application Strategy is the primary concern right no
 
 7. Tables switch roles and repeat Steps 2-6.
 
-##  Wrap-up 
+## Wrap-up 
 
-**Timeframe:** 15 minutes
+**Time-frame:** 15 minutes
 
 **Directions:** Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
-##  Additional references
+## Additional references
 
 |    |            |
 |----------|:-------------:|
 | **Description** | **Links** |
 | Azure SQL Database TDE (BYOK)         | <https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-byok-configure> |
-| TDE BYOK Process Overview |<https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-byok-overview>|
+|TDE BYOK Process Overview |<https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-byok-overview>|
 | Azure SQL Database Always Encrypted   | <https://docs.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-certificate-store-configure> |
 | Azure SQL Database AE Colum Master Key Overview |<https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted>|
 | Azure SQL Database AE Column Master Key Management| <https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted> |
 | Azure SQL Database Row Level Security | https://azure.microsoft.com/en-us/resources/videos/row-level-security-in-azure-sql-database/ |
 | Azure Key Vault Developer's Guide     | <https://azure.microsoft.com/documentation/articles/key-vault-developers-guide/>|
 | About Keys and Secrets                | <https://msdn.microsoft.com/library/dn903623.aspx> |
-| Quickstart: Azure Key Vault client library for .NET(SDK v4)|<https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-net#setting-up>|
-| Tutorial: Use a managed identity to connect Key Vault to an Azure Web App with .NET|<https://docs.microsoft.com/en-us/azure/key-vault/general/tutorial-net-create-vault-azure-web-app>|
+|Quickstart: Azure Key Vault client library for .NET(SDK v4)|<https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-net#setting-up>|
+|Tutorial: Use a managed identity to connect Key Vault to an Azure Web App with .NET|<https://docs.microsoft.com/en-us/azure/key-vault/general/tutorial-net-create-vault-azure-web-app>|
 | Azure API Management Overview         | <https://docs.microsoft.com/azure/api-management/api-management-key-concepts> |
 | Working with Azure Functions Proxies  | <https://docs.microsoft.com/azure/azure-functions/functions-proxies> |
 | Git Trunk-based Development|https://trunkbaseddevelopment.com/|
@@ -456,6 +460,7 @@ Locking down a Secure Cloud Application Strategy is the primary concern right no
 | Buy a custom domain name for Azure App Service | <https://docs.microsoft.com/en-us/azure/app-service/manage-custom-dns-buy-domain>  |
 | AD Conditional Access Overview | <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview>  |
 | AD Identity Protection|<https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection>|
+
 
 # Secure Cloud Solution Whiteboard Design Session Trainer Guide
 ## Step 1: Review the customer case study
@@ -607,7 +612,7 @@ For SAML support, if on-premises apps use SAML-based authentication they can be 
 
 **Use Azure AD B2C to facilitate customer login from External Customers**
 
-This path is used where the Contoso customer opts to create a formal account within Contoso to interact with some of the deeper experiences provided within the customer workflow instead of just purchasing items via the ecommerce purchase path.  
+This path is used where the Contoso customer opts to create a formal account within Contoso to interact with some of the deeper experiences provided within the customer workflow instead of just purchasing items via the e-commerce purchase path.  
 
 The deeper customer experience contains features such as:
 
@@ -645,9 +650,9 @@ Once this part of the solution is complete, the organization can set the stage f
 
 - **What are some methods to effectively migrate users for both the External Partners and Customers from existing user stores into the new Unified Identity Solution?**
 
-**Goal:**  Provide a method for migrating existing users from the current self-hosted applicaiton storage to Microsoft Managed Identity managed B2C and B2B tenants.  
+**Goal:**  Provide a method for migrating existing users from the current self-hosted application storage to Microsoft Managed Identity managed B2C and B2B tenants.  
 
-Microsoft has provided a two-phase approach that works with custom code (modifications to existing web applications) and represents an essentially invisible experience to the user since all of the migration tasks occur within the Contoso web applicaion workflow. 
+Microsoft has provided a two-phase approach that works with custom code (modifications to existing web applications) and represents an essentially invisible experience to the user since all of the migration tasks occur within the Contoso web application workflow. 
 
 This migration flow requires a primary bulk migration of existing user accounts, but then uses a custom policy to query a  secondary REST API endpoint to set each users' password on next user sign-in.  This flow can be expressed as two distinct stages:
 
@@ -655,7 +660,7 @@ This migration flow requires a primary bulk migration of existing user accounts,
 
 - A simple migration application process reads existing user accounts from the old identity provider, in this case, for the Contoso Preferred Customer Accounts the "identity provider" is really a custom membership store in Contoso's in Azure SQL Database that the customer web application was connected to.   
 
-- For each of these custom account records, the migration application creates corresponding user accounts in your Azure AD B2C directory by using MS Graph, but does not set passwords.   Each migrated account gets a custom extention attribute which is a boolean migration flag set to TRUE, signifying that this account must complete migration.   
+- For each of these custom account records, the migration application creates corresponding user accounts in your Azure AD B2C directory by using MS Graph, but does not set passwords.   Each migrated account gets a custom extension attribute which is a boolean migration flag set to TRUE, signifying that this account must complete migration.   
 
 **State 2: Set credentials**
 
@@ -663,7 +668,7 @@ Stage 2 begins once the bulk migration of the accounts is complete and here, eng
 
 1. Read the Azure AD B2C user account corresponding to the email address entered and inspect the account looking for the state of the migration flag.
 
-2. IF the value of the extention attribute is:
+2. IF the value of the extension attribute is:
 
 - **TRUE** - call the REST API to validate the password the user just entered against the legacy identity provider, and if the validation returns false return a friendly error to the user, else if correct, write the entered password to the Azure AD B2C account and change the boolean extension attribute to FALSE.
 
@@ -699,7 +704,7 @@ For a smaller company like Contoso it is more advantageous to let Azure manage C
 
 For self-managed CMK processes, the certificate key can be stored in an instance of Azure Key Vault within the same subscription.   Since Contoso uses Azure SQL Database it is important to note that key placement is at the Server-Level only.  Individual database level support for this feature is not available at this time.   Also Allow Trusted Microsoft Services must be enabled at the Server-Level.
 
-Consider also that for most organizations with a mature InfoSec Policy, the policy requires a declarative separation of duties related to segmenation of who does what within the organization so no one individual can place keys and configuration.  In diagram below, you can see that the DBA and Security, and Audit roles are maintained by different individuals within the organization. Policies like this are often implemented to prevent active "threats from within" which is a legitimate concern that is, frankly, overlooked. 
+Consider also that for most organizations with a mature InfoSec Policy, the policy requires a declarative separation of duties related to segmentation of who does what within the organization so no one individual can place keys and configuration.  In diagram below, you can see that the DBA and Security, and Audit roles are maintained by different individuals within the organization. Policies like this are often implemented to prevent active "threats from within" which is a legitimate concern that is, frankly, overlooked. 
 
 ![image info](./images/SelfManagedKeys.png)
 
@@ -727,7 +732,7 @@ For Contoso, it is important to keep in mind that TDE keys are intrinsic to some
 
 **TDE and AE Key Rotation**
 
-Key rotation cannot be accomplished via Azure Portal - can be accomplished using script in either TSQL, Azure Powershell, and Azure CLI.   The process for this is relatively simple but is beyond the scope of this exercise.   Prior to implementing a BYOK solution, operator teams should be sure to read the documentation and understand the process on this topic prior to implementation.
+Key rotation cannot be accomplished via Azure Portal - can be accomplished using script in either T-SQL, Azure Powershell, and Azure CLI.   The process for this is relatively simple but is beyond the scope of this exercise.   Prior to implementing a BYOK solution, operator teams should be sure to read the documentation and understand the process on this topic prior to implementation.
 
 For Contoso, it is important to keep in mind that AE and TDE keys are intrinsic to HADR and backup/restore operations as well so old keys should be archived using AKV versioning to ensure proper access to backups.  
 
@@ -759,7 +764,7 @@ queries can be silently filtered prefiltered based on execution context to ensur
 
 **Use Dynamic Data Masking** 
 
-We can use Dynamic Data Masking (DDM) to protect sensitive data from view using masking objuscation techniques based on role for data consumers. 
+We can use Dynamic Data Masking (DDM) to protect sensitive data from view using masking obfuscation techniques based on role for data consumers. 
 
 **NOTE**
 
@@ -812,7 +817,7 @@ MIP provides a unified platform for authentication and authorization and in addi
 
 **Robust Deployment using a Declarative Deployment Tool-Chain** 
 
-Secure applications are deployed using a verified declarative and repeatable deployment pipeline via Azure DevOps.  This is the only source for secure app deployment through ALL STAGES of the SDLC.   “One-click”, or “drag and drop” desktop deployments are NOT allowed in any stage of development once an application leaves POC or local development status.   
+Secure applications are deployed using a verified declarative and repeatable deployment pipeline via Azure DevOps.  This is the only source for secure app deployment through ALL STAGES of the SDLC. "One-click", or “drag and drop” desktop deployments are NOT allowed in any stage of development once an application leaves POC or local development status.   
 
 Any approved application is developed from an official repo that is configured to a declared build pipeline and deployed using that same pipeline to approved environments.   
 
@@ -870,11 +875,11 @@ One additional feature:  AKV offers complete logging features through portal tha
 
 Microsoft have provided a pre-built client library for accessing secrets via AKV REST API and this component is available for .NET, ...NET Core, Powershell, and even the Azure CLI client consumption.  
 
-Since Contoso builds mostly .NET Core apps that use the v4 SDK,    This libary is available for .NET by using the dotnet package manager to add the following packages:
+Since Contoso builds mostly .NET Core apps that use the v4 SDK. This library is available for .NET by using the dotnet package manager to add the following packages:
 - Azure.Security.KeyVault.Secrets
 - Azure.Identity
 
-The **Azure.Security.KeyVault.Secrets** package contains all the code you need to access AKV and read secrets that will be used to modify the running configuration of Contoso cusotm applications.  
+The **Azure.Security.KeyVault.Secrets** package contains all the code you need to access AKV and read secrets that will be used to modify the running configuration of Contoso custom applications.  
 
 The **Azure.Identity** package contains all the code required to use the managed identity we get from registering the app with Azure via Microsoft Identity Platform portal as the main credential that a Contoso custom app will use to authenticate to AKV to make requests.   
 
@@ -882,7 +887,7 @@ Be sure to check the links provided in the student guide to review this process 
 
 **What refactoring is required for custom applications to use the unified identity strategy?**
 
-Any API secured using  Microsoft Identity Platform(MIP) is first registered with MIP which essentially registeres the Application with AAD.  After registratio the application will request 
+Any API secured using  Microsoft Identity Platform(MIP) is first registered with MIP which essentially registers the Application with AAD. After registration the application will request 
  a valid identity and access token during the authentication request.  The access tokens are in JWT format.   
  
 On response, depending on the workflow MIP will return an access token, or an identity token, or both to the application.  After receipt, Identity and Access tokens must be validated 
@@ -928,7 +933,7 @@ MIP supports two key types of permissions:
 This permission type is utilized by apps that have a signed-in user present. In this permission context, either the user consents to grant the requested permissions to the app, thus the app is "delegated permission to act" as the signed-in user when accessing resources and data.  
 
 **Application Permissions**
-This permission type is utilized by apps that run without a signed-in user present, such as background services or daemons.  In this permisison context, permissions can only be granted by an administrator.
+This permission type is utilized by apps that run without a signed-in user present, such as background services or daemons.  In this permission context, permissions can only be granted by an administrator.
 
 By defining permission types, operator teams now have fine-grained access control API workflow and data.   This means any integrated app can request permissions to execute workflow or access data.   Using this construct, apps can request only the specific permissions required to execute their function.   Nothing more, nothing less.   Further, the code becomes more declarative, as developers can literally read what permissions are being requested and checked within the actual code line.   On the management side, administrators can know exactly what access the application is intended to have based on what is seen in app registration.  
 
